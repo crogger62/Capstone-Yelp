@@ -1,13 +1,12 @@
 ---
 title: "Interactive Restaurant Shiny Application"
-output: pdf_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Title: 
 ### Capstone Final Project
 ### Author: Craig Lewis
 ### Date:   November 15, 2015
@@ -82,19 +81,54 @@ write.table(bizrates,"bizrates.dat")
 After these steps a file exists that can be read into the Shiny application and used to display the map. 
 
 ### Map Rendering with Leaflet
-The Leaflet 
+Leaflet is an amazing add-on for R that provides for interactive maps including within Shiny applications. Originally developed as an open-source JavaScript library it allows data to be easily over layed on maps that can be panned and zoomed. Markers can be placed on maps and customized based on the app designer needs. 
+
+Additional information on Leaflet and R is found here: **https://rstudio.github.io/leaflet/**
+
+Rendering a map is ultimately fairly easy to do. The code to do so is listed below:
+
+```{r echo=TRUE, warning=FALSE,eval=TRUE,messages=FALSE} 
+
+library(leaflet,quietly=TRUE)
+library(maps,quietly=TRUE)
+
+    # Read pre-processed data
+    bizrates<-read.table("bizrates.dat")
+    
+    # Build out a leaflet object
+    mymap<-leaflet() %>% 
+        addTiles() %>% 
+        addTiles(urlTemplate = "http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png")  %>%  
+        mapOptions(zoomToLimits="always") %>%             
+        addMarkers(lat=bizrates$biz_rest.latitude,lng=bizrates$biz_rest.longitude,
+                       clusterOptions = markerClusterOptions(),popup=bizrates$biz_rest.business_id) 
+
+    # And display it
+    mymap
+```
+
+Note: In a live HTML document the map works! Not so in a PDF, however. 
+
+Examining the leaflet() call includes the "stream" operator %>% to pipe output from one command to another. Of interest is the specification of markers() based on the latitude and longitude of the business. If there are a large number of markers in a geographical location a special cluster marker is placed indicating the number of markers contained within. Finally if a marker is clicked then we can specify the text to display, in this case we use the business ID.
 
 ### Shiny Application with User Input
+The Shiny application uses the standard UI/Server configuration. The data is loaded into the app and a basic UI is presented 
+
+
+The user can select the range of stars in the review and then select the attributes described above: Take-out, Reservations, Free Wi-fi or Catering. The leaflet map can be zoomed or panned. Clicking on the numbers drills into the geographic region until a specific restaurant is identified. Clicking on the icon for a restaurant brings up the Business ID (which would be the name in a non-anonymized data set).
 
 ## Results
+Here is a screen image of the application (not functional in this rendering):
+<img src="ShinyPic.png"/>
 
 ## Discussion
+It works! This simple Shiny application can be expanded to allow for further refinement of the search capability to provide more granular selection of resturants. The types of businesses could be expanded to include other eating establishments. Alternatively, this structure could allow for an alternate presentation of a business category, for example, car repair as the framework exists for 1) pre-processing the data and 2) plotting the data, with selection criteria, onto a leaflet map. 
 
 
 
 
-```{r cars}
-summary(cars)
-```
+
+
+
 
 
