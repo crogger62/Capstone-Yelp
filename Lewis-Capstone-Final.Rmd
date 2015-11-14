@@ -23,7 +23,7 @@ When then map is displayed in the Shiny application we want users to be able to 
 
 Finally, a Shiny application was developed that provided the user with a map of all the restaurants that contain user specified criteria as well as the average number of stars reviewers have assigned to the restaurant . As the users, select different criteria the map is updated to show the restaurants that match that criteria. 
 
-Additional details on this process are discussed below. 
+Additional details on this process are discussed below. All of the processing for this is found in pre_process.R
 
 
 ### Reading JSON Data
@@ -81,7 +81,7 @@ write.table(bizrates,"bizrates.dat")
 After these steps a file exists that can be read into the Shiny application and used to display the map. 
 
 ### Map Rendering with Leaflet
-Leaflet is an amazing add-on for R that provides for interactive maps including within Shiny applications. Originally developed as an open-source JavaScript library it allows data to be easily over layed on maps that can be panned and zoomed. Markers can be placed on maps and customized based on the app designer needs. 
+Leaflet is an amazing add-on for R that provides for interactive maps including within Shiny applications. Originally developed as an open-source JavaScript library it allows data to be easily overlayed on maps that can be panned and zoomed. Markers can be placed on maps and customized based on the app designer needs. 
 
 Additional information on Leaflet and R is found here: **https://rstudio.github.io/leaflet/**
 
@@ -122,7 +122,7 @@ Here is a screen image of the application (not functional in this rendering):
 <img src="ShinyPic.png"/>
 
 ## Discussion
-It works! This simple Shiny application can be expanded to allow for further refinement of the search capability to provide more granular selection of resturants. The types of businesses could be expanded to include other eating establishments. Alternatively, this structure could allow for an alternate presentation of a business category, for example, car repair as the framework exists for 1) pre-processing the data and 2) plotting the data, with selection criteria, onto a leaflet map. 
+It works! This simple Shiny application can be expanded to allow for further refinement of the search capability to provide more granular selection of restaurants. The types of businesses could be expanded to include other eating establishments. Alternatively, this structure could allow for an alternate presentation of a business category, for example, car repair as the framework exists for 1) pre-processing the data and 2) plotting the data, with selection criteria, onto a leaflet map. 
 
 
 

@@ -1,0 +1,9 @@
+name: Publish Document
+account: rpubs
+server: rpubs.com
+appId:
+        https://api.rpubs.com/api/v1/document/125955/4ee730a91a8340c88cbd5ca07d46fd64
+bundleId:
+        https://api.rpubs.com/api/v1/document/125955/4ee730a91a8340c88cbd5ca07d46fd64
+url: http://rpubs.com/crog62/125955
+when: 1447543617.16405
