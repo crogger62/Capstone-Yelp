@@ -1,5 +1,5 @@
 ---
-title: "Capstone Final Project - C. Lewis"
+title: "Interactive Restaurant Shiny Application"
 output: pdf_document
 ---
 
@@ -7,11 +7,33 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Title
+## Title: 
+### Capstone Final Project
+### Author: Craig Lewis
+### Date:   November 15, 2015
 
 ## Introduction
+In 2015, Yelp released a series of datasets as part of the Yelp Dataset Challenge contest. These datasets included anonymized information regarding business reviews, Yelp reviewers, check-in information and tips. The objective was to make this data available to (budding) data scientists and see what can be learned about reviews and business behaviors involving of businesses reviewed on Yelp.
+
+For this capstone project, a Shiny application was developed that allows users to work with an interactive map and see restaurants that match a users-specified selection of criteria.  In developing the interactive application, the data was analyzed, cleaned and saved in advance for quick rendering and use of the map. Details of this process alogn with some summary metrics are provided in this paper. 
 
 ## Methods and Data
+There is a large amount of data in the Yelp Dataset Challenge. There are five JSON files that contain different types of information regarding the businesses reviewed on Yelp. For this project, the businesses file was used. The data was read into R and then filtered to identify the categories of businesses and extract restaurants. 
+
+When then map is displayed in the Shiny application we want users to be able to select restaurants by a range of stars in the reviews as well as several other variables of interest.  In order to do this, four additional variables are identified and a new dataframe is constructed using a subset of the businesses data set.  The businesses dataset is large. There are over 60,000 businesses in the data file and there are dozens of variables used to characterize these businesses. To simlify the Shiny application and speed the loading of the data used to display the maps, we create a new data frame with only the data of interest and then save this data off to a separate file that is loaded by the Shiny application. 
+
+Finally, a Shiny applicatno was developed that provided the user with a map of all the restaurants that contain certain criteria as wella st . As the users, select different cri
+
+
+### Reading JSON Data
+
+### Filtering Business Information
+
+### Rebuilding Dataset
+
+### Map Rendering with Leaflet
+
+### Shiny Application with User Input
 
 ## Results
 
