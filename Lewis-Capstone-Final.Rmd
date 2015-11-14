@@ -1,0 +1,27 @@
+---
+title: "Capstone Final Project - C. Lewis"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Title
+
+## Introduction
+
+## Methods and Data
+
+## Results
+
+## Discussion
+
+
+
+
+```{r cars}
+summary(cars)
+```
+
+

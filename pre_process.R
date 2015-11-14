@@ -49,3 +49,10 @@ mymap<-leaflet() %>%
 #
 mymap
 
+# Gather some metrics
+num_biz<-nrow(biz_dat)
+num_rest<-nrow(bars)
+num_complete<-nrows(bizrates)
+# plot
+barplot(c(num_biz,num_rest,num_complete), main="Number of Business",names.arg=c("Businesses","Restaurants","Full Service"))
+
